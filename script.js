@@ -98,6 +98,8 @@ function renderCart(cart) {
         cContainer.appendChild(div);
         const btnDiv = document.getElementById("calbtnSummoner");
         btnDiv.innerHTML = `<button class="px-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white border-solid border-4 border-indigo-600 text-xl ml-4 rounded-btn" id="calPrice" onclick="calculateBtn()">Calculate Total price</button>`
+        const removeDiv = document.getElementById("removebtnSummoner");
+        removeDiv.innerHTML = `<button class="px-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white border-solid border-4 border-indigo-600 text-xl ml-4 rounded-btn" id="calPrice" onclick="removeBtn()">Remove</button>`
     });
 }
 
@@ -136,7 +138,15 @@ function isImgUrl(img) {
 	return /\.(jpg|png|gif)$/.test(input.pathname);
 }
 
+function removeBtn() {
+    cart = products.filter((product) => product.checked);
+    console.log(cart)
+    removeREAL()
+}
 
+function removeREAL(cart){
+    renderCart(cart)
+}
 
 // const box = []
 // function addToCart(event) {
