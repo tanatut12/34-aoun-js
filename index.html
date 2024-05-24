@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js_assesment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <header>
+    <h1 class="text-2xl text-center py-4 font-bold">Shopping Cart</h1>
+    <div
+      class="flex justify-between p-4 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white border-solid border-4 border-indigo-600"
+    >
+      <h2 class="text-xl">Add Item for selection</h2>
+      <h2 class="text-xl">Product Form</h2>
+    </div>
+  </header>
+  <body>
+    <main class="w-full h-[100vh] bg-gradient-to-r from-red-500 to-blue-500">
+      <form class="w-full flex justify-around py-4">
+        <label for="Product name" class="pt-2 text-xl text-white"
+          >Product name</label
+        >
+        <input
+          type="text"
+          id="Product_input"
+          name="Product_name"
+          placeholder="Product Name...."
+          class="p-2 border-solid border-4 border-indigo-600 rounded-lg"
+          required
+        />
+        <label for="Price" class="pt-2 text-xl text-white">Price</label>
+        <input
+          type="int"
+          id="Price_input"
+          name="Price"
+          placeholder="Price...."
+          class="p-2 border-solid border-4 border-indigo-600 rounded-lg"
+          required
+        />
+        <label for="img" class="pt-2 text-xl text-white">Image</label>
+        <input
+          type="url"
+          id="Image_input"
+          name="Image"
+          placeholder="Image url"
+          class="p-2 border-solid border-4 border-indigo-600 rounded-lg"
+          required
+        />
+        <button
+          id="Pbutton"
+          class="px-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white border-solid border-4 border-indigo-600 text-xl rounded-btn"
+        >
+          Create
+        </button>
+      </form>
+      <div id="Pcontainer" class="p-4 w-full flex justify-around"></div>
+      <button
+        id="Addbtn"
+        class="px-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white border-solid border-4 border-indigo-600 text-xl ml-4 rounded-btn"
+      >
+        Add to Cart
+      </button>
+      <div id="Ccontainer" class="p-4 w-full flex justify-around"></div>
+      <div id="calbtnSummoner"></div>
+      <!-- <button id="calPrice">Calculate Total price</button> -->
+      <h2
+        id="totalP"
+        class="mx-4 px-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white border-solid border-4 border-indigo-600 text-xl ml-4 rounded-btn"
+      >
+        Total price:
+      </h2>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
