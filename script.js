@@ -91,15 +91,15 @@ function renderCart(cart) {
                 <h2 class="card-title text-2xl font-bold">${product.product}</h2>
                 <p class="text-xl font-semibold">${product.price}$</p>
                 <div class="card-actions justify-end">
-                    <input type="checkbox" class="w-8 h-8 text-2xl accent-rose-600" data-id="${product.id}" checked onchange="calculatePriceSelection(event)">
+                    <input type="checkbox" class="sr-only w-8 h-8 text-2xl accent-rose-600" data-id="${product.id}" checked onchange="calculatePriceSelection(event)">
+                    <button class="px-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white border-solid border-4 border-indigo-600 text-xl ml-4 rounded-btn" id="${product.id}" onclick="removeBtn(${product.id})">Remove</button>
                 </div>  
             </div>
         </div>`;
         cContainer.appendChild(div);
         const btnDiv = document.getElementById("calbtnSummoner");
         btnDiv.innerHTML = `<button class="px-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white border-solid border-4 border-indigo-600 text-xl ml-4 rounded-btn" id="calPrice" onclick="calculateBtn()">Calculate Total price</button>`
-        const removeDiv = document.getElementById("removebtnSummoner");
-        removeDiv.innerHTML = `<button class="px-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white border-solid border-4 border-indigo-600 text-xl ml-4 rounded-btn" id="calPrice" onclick="removeBtn()">Remove</button>`
+        
     });
 }
 
@@ -116,7 +116,7 @@ function calculatePriceSelection(event) {
 }
 
 function calculateBtn() {
-    cart = products.filter((product) => product.checked);
+    
     calculateFinal(cart);
 }
 
@@ -138,53 +138,7 @@ function isImgUrl(img) {
 	return /\.(jpg|png|gif)$/.test(input.pathname);
 }
 
-function removeBtn() {
-    cart = products.filter((product) => product.checked);
-    console.log(cart)
-    removeREAL()
-}
-
-function removeREAL(cart){
+function removeBtn(Rproduct) {
+    cart = cart.filter((product) => product.id !== Rproduct );
     renderCart(cart)
 }
-
-// const box = []
-// function addToCart(event) {
-//     const checkbox = event.target;
-//     const checkboxId = parseInt(checkbox.getAttribute("data-id"));
-    
-//     box.push(products.find((product) => product.id === checkboxId));
-//     // console.log(box)
-//     // if (box) {
-//     //     box.check = checkbox.checked;
-//     //     console.log(box)
-//     // }
-//     console.log(box)
-//     const addBtn = document.getElementById("Addbtn")
-
-//     addBtn.addEventListener("click", () => {
-//         renderCart(box);
-//     });
-// }
-
-// function renderCart(box) {
-//     const cContainer = document.getElementById("Ccontainer")
-//     const div = document.createElement("div")
-//     div.className = "card w-96 glass"
-//     div.innerHTML = `<figure>
-//           <img
-//             src="${box.image}"
-//             alt="${box.product}"
-//           />
-//         </figure>
-//         <div class="card-body">
-//           <h2 class="card-title text-2xl font-bold">${box.product}</h2>
-//           <p class="text-xl font-semibold">${box.price}$</p>
-//           <div class="card-actions justify-end">
-//           <input type="checkbox" class="w-8 h-8 text-2xl accent-rose-600" data-id="${box.id}" onchange="addToCart(event)">
-//           </div>  
-//           </div>
-//         </div>`;
-//     cContainer.appendChild(div)
-//     // console.log(box)
-// }
